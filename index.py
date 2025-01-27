@@ -73,11 +73,13 @@ def main():
         if quadrado.x <10 or quadrado.x >1300:
            quadrado.y = 10 
            quadrado.x = 10
+           som_colisao.play()
            sleep(0.5)
 #limite para não sair pelo eixo y
         if quadrado.y <10 or quadrado.y > 400:
            quadrado.y = 10
            quadrado.x = 10
+           som_colisao.play()
            sleep(0.5)
       
         janela.fill(cor_preta)  # pinta a janela
@@ -94,6 +96,15 @@ def main():
         pygame.draw.rect(janela,cor_vermelho,retangulo_lateral2)
         pygame.draw.rect(janela,cor_roxa,retangulo9)
         pygame.draw.rect(janela,cor_amarelo,fim)
+      
+      #final da fase.-.  
+        if quadrado.colliderect(fim):
+           quadrado.x = 1170
+           quadrado.y = 370  
+           som_colisao.play()
+           som_colisao.play
+           sleep(1)
+           break 
     
         relogio.tick(30)#FRAMES POS SEGUNDO 
         pygame.display.update()
