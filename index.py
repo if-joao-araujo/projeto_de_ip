@@ -1,56 +1,7 @@
 import pygame
 from time import sleep
-def ultima_fase(): 
-#para iniciar ,_,
-    pygame.init()
-    relogio = pygame.time.Clock()
-    #minha janela             
-    janela2 = pygame.display.set_mode([0,0], pygame.FULLSCREEN)
-#minhas cores
-    cor_branco = (225, 225, 225)
-    cor_azul = (108, 194, 235)
-    cor_amarelo = (252,240,0)
-    cor_vermelho = (255,0,0)
-    cor_roxa = (100,72,255)
-    cor_preta = (0,0,0)
-    cor_rosa = (255,52,194)
-    sair = False
-    
-#meus objetos
-    quadrado2 = pygame.Rect(1,20,10,10)
-    barreira1 = pygame.Rect(0,50,1000,30)
-
-#posição do meu quadrao2
-    (quadrado2.x,quadrado2.y) = (0,0)
-    sair = False
-    while  sair == False:  
-        for eventos in pygame.event.get():
-            if eventos.type == pygame.QUIT:
-                 sair = True  
-
-
-      #movimentação do quadrado2  
-        teclas2 = pygame.key.get_pressed()
-        if teclas2[pygame.K_w]:
-           quadrado2.y -= 10
-        if  teclas2[pygame.K_s]:
-            quadrado2.y += 10
-        if teclas2[pygame.K_a]:
-            quadrado2.x -= 10
-        if teclas2[pygame.K_d]:
-           quadrado2.x += 10 
-#objetos e telas que serão desenhados na janela2
-        janela2.fill(cor_preta)
-        pygame.draw.rect(janela2, cor_branco,quadrado2)
-        pygame.draw.rect(janela2,cor_vermelho,barreira1)
-    
-        relogio.tick(30)#FRAMES POS SEGUNDO 
-        pygame.display.update()
-    pygame.quit()  
-
-
 def main():
-    # Inicia o joguinho
+    # Inicia o Pygame
     pygame.init()
     
     relogio = pygame.time.Clock()
@@ -64,7 +15,6 @@ def main():
     cor_vermelho = (255,0,0)
     cor_roxa = (100,72,255)
     cor_preta = (0,0,0)
-    cor_rosa = (255,52,194)
   
     
     #quadrado e os obstaculos
@@ -144,9 +94,10 @@ def main():
         pygame.draw.rect(janela,cor_vermelho,retangulo_lateral2)
         pygame.draw.rect(janela,cor_roxa,retangulo9)
         pygame.draw.rect(janela,cor_amarelo,fim)
-        
-       
-        if quadrado.colliderect(fim):
-           (quadrado.x , quadrado.y) = (1170, 370) 
-           som_colisao.play()
-           break
+    
+        relogio.tick(30)#FRAMES POS SEGUNDO 
+        pygame.display.update()
+    pygame.quit()  
+    
+
+main()
